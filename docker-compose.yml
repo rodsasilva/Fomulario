@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   flask:
-    image: rodsasilva/formulario:latest   # ou use "build: ." se for buildar localmente
+    image: rodsasilva/formulario:latest
     container_name: flask_libera
     ports:
       - "5000:5000"
