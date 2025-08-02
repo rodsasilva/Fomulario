@@ -1,0 +1,21 @@
+<form id="solicitacaoForm">
+  <input type="text" name="solicitante" placeholder="Solicitante" required />
+  <input type="text" name="nome_aplicacao" placeholder="Nome da Aplicação" required />
+  <input type="text" name="ip_origem" placeholder="IP Origem" required />
+  <input type="text" name="ip_destino" placeholder="IP Destino" required />
+  <input type="url" name="aplicacao" placeholder="Aplicação (URL)" required />
+  <input type="text" name="motivo" placeholder="Motivo da Solicitação" required />
+  <button type="submit">Enviar</button>
+</form>
+<script>
+  document.getElementById('solicitacaoForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    await fetch('/api/solicitacao', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    alert('Solicitação enviada!');
+  }
+</script>
